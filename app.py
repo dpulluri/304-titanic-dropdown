@@ -18,7 +18,7 @@ githublink = 'https://github.com/dpulluri/304-titanic-dropdown'
 
 
 ###### Import a dataframe #######
-df = pd.read_csv("assets/drinks.csv")
+df = pd.read_csv("assets/drinks.csv", keep_default_na=False)
 #df['Female']=df['Sex'].map({'male':0, 'female':1})
 #df['Cabin Class'] = df['Pclass'].map({1:'first', 2: 'second', 3:'third'})
 variables_list=['beer_servings', 'spirit_servings', 'wine_servings', 'total_litres_of_pure_alcohol']
