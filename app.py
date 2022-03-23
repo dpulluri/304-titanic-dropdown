@@ -18,7 +18,7 @@ githublink = 'https://github.com/dpulluri/304-titanic-dropdown'
 
 
 ###### Import a dataframe #######
-df = pd.read_csv("/assets/drinks.csv")
+df = pd.read_csv("assets/drinks.csv")
 #df['Female']=df['Sex'].map({'male':0, 'female':1})
 #df['Cabin Class'] = df['Pclass'].map({1:'first', 2: 'second', 3:'third'})
 variables_list=['beer_servings', 'spirit_servings', 'wine_servings', 'total_litres_of_pure_alcohol']
@@ -49,13 +49,12 @@ app.layout = html.Div([
 @app.callback(Output('display-value', 'figure'),
               [Input('dropdown', 'value')])
 def display_value(continuous_var):
-    results = dfDrinks.groupby(['continent']).sum().reset_index()
+    results = df.groupby(['continent']).sum().reset_index()
 
     # Create a grouped bar chart
     mydata1 = go.Bar(
         x=results.continent,
         y=results[continuous_var],
-        name='First Class',
         marker=dict(color=color1)
     )
     mylayout = go.Layout(
